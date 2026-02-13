@@ -1,30 +1,36 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char s[1000];
-    
-    // Read string
-    scanf("%s", s);
-    
-    int left = 0;
-    int right = strlen(s) - 1;
-    int isPalindrome = 1;
+    int m, n;
 
-    // Two-pointer comparison
-    while (left < right) {
-        if (s[left] != s[right]) {
-            isPalindrome = 0;
-            break;
+    scanf("%d %d", &m, &n);
+
+    int A[m][n], B[m][n], sum[m][n];
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
         }
-        left++;
-        right--;
     }
 
-    if (isPalindrome)
-        printf("YES\n");
-    else
-        printf("NO\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            sum[i][j] = A[i][j] + B[i][j];
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
